@@ -52,37 +52,6 @@ Output:
 4. **Skip duplicates**: Skip duplicate elements to avoid duplicate quadruplets.
 5. **Store results**: If the sum matches the target, store the quadruplet in the results list.
 
-## Pseudocode
-
-```
-function fourSum(nums, target):
-    sort(nums)
-    results = []
-    for i from 0 to length(nums) - 3:
-        if i > 0 and nums[i] == nums[i - 1]:
-            continue
-        for j from i + 1 to length(nums) - 2:
-            if j > i + 1 and nums[j] == nums[j - 1]:
-                continue
-            left = j + 1
-            right = length(nums) - 1
-            while left < right:
-                total = nums[i] + nums[j] + nums[left] + nums[right]
-                if total == target:
-                    append [nums[i], nums[j], nums[left], nums[right]] to results
-                    while left < right and nums[left] == nums[left + 1]:
-                        left += 1
-                    while left < right and nums[right] == nums[right - 1]:
-                        right -= 1
-                    left += 1
-                    right -= 1
-                else if total < target:
-                    left += 1
-                else:
-                    right -= 1
-    return results
-```
-
 ## Time Complexity
 
 The time complexity of this approach is `O(n^3)`, where `n` is the length of the array. This is because we have two nested loops and a two-pointer approach inside the inner loop.
